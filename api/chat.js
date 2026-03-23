@@ -5,12 +5,11 @@ export default async function handler(request, response) {
   }
 
   try {
-    // 1. Notice how we use the NAME of the variable, not the actual key!
+    // Vercel grabs the secret key from your dashboard
     const mySecretKey = process.env.GEMINI_API_KEY; 
-    
-    // 2. Pointing to Google Gemini, not OpenRouter
     const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${mySecretKey}`;
 
+    // Securely knock on Google's door
     const aiResponse = await fetch(GEMINI_URL, {
       method: 'POST',
       headers: {
