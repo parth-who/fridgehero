@@ -333,16 +333,15 @@ Respond ONLY with valid JSON — no markdown, no explanation:
       btn.disabled = true; loading.style.display = 'block';
       result.style.display = 'none'; errorMsg.style.display = 'none';
  
-      try {
-        // Change the URL to point to the Netlify function
-        const response = await fetch('/.api/chat', {
+     try {
+        // Make sure this says exactly '/api/chat'
+        const response = await fetch('/api/chat', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
         });
         
         if (!response.ok) throw new Error(`API error ${response.status}`);
-// ... the rest of your code stays exactly the same!
         const data = await response.json();
         let text = data.candidates[0].content.parts[0].text.trim();
         text = text.replace(/```json\s*/g, '').replace(/```/g, '').trim();
