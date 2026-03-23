@@ -335,7 +335,7 @@ Respond ONLY with valid JSON — no markdown, no explanation:
  
       try {
         // Change the URL to point to the Netlify function
-        const response = await fetch('/.netlify/functions/chat', {
+        const response = await fetch('/.api/chat', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
