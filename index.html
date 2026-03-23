@@ -334,8 +334,8 @@ Respond ONLY with valid JSON — no markdown, no explanation:
       result.style.display = 'none'; errorMsg.style.display = 'none';
  
       try {
-        // Look here! We changed GEMINI_URL to '/api/chat'
-        const response = await fetch('/api/chat', {
+        // Change the URL to point to the Netlify function
+        const response = await fetch('/.netlify/functions/chat', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
