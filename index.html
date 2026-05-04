@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fridge Hero 🍳</title>
+
+  <!-- PWA -->
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#f97316">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Fridge Hero">
+  <link rel="apple-touch-icon" href="/icon-192.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+  <link rel="shortcut icon" href="/icon-192.png">
+
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="bg-grid"></div>
+
+  <header class="header">
+    <div class="header-badge">✦ AI-Powered Chef</div>
+    <h1>Fridge <span class="highlight">Hero</span></h1>
+    <p class="subtitle">3 ingredients. Infinite meals. Zero waste.</p>
+  </header>
+
+  <main class="card">
+
+    <section class="section">
+      <p class="label">🥕 Your Ingredients</p>
+      <div class="ingredients">
+        <div class="input-row"><span class="num">1</span><input type="text" id="ing1" placeholder="e.g. Chicken" autocomplete="off"></div>
+        <div class="input-row"><span class="num">2</span><input type="text" id="ing2" placeholder="e.g. Lemon" autocomplete="off"></div>
+        <div class="input-row"><span class="num">3</span><input type="text" id="ing3" placeholder="e.g. Garlic" autocomplete="off"></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <p class="label">🥗 Dietary Restrictions</p>
+      <div class="chips">
+        <label class="chip"><input type="checkbox" name="diet" value="Vegetarian"><span class="dot"></span>🌿 Vegetarian</label>
+        <label class="chip"><input type="checkbox" name="diet" value="Vegan"><span class="dot"></span>🌱 Vegan</label>
+        <label class="chip"><input type="checkbox" name="diet" value="Gluten-Free"><span class="dot"></span>🌾 Gluten-Free</label>
+        <label class="chip"><input type="checkbox" name="diet" value="Keto"><span class="dot"></span>🥑 Keto</label>
+        <label class="chip"><input type="checkbox" name="diet" value="Dairy-Free"><span class="dot"></span>🥛 Dairy-Free</label>
+        <label class="chip"><input type="checkbox" name="diet" value="Nut-Free"><span class="dot"></span>🥜 Nut-Free</label>
+      </div>
+    </section>
+
+    <section class="section">
+      <p class="label">👥 Servings</p>
+      <div class="stepper-row">
+        <div class="stepper">
+          <button id="decBtn" type="button">−</button>
+          <span class="val" id="servingVal">2</span>
+          <button id="incBtn" type="button">+</button>
+        </div>
+        <span class="people-label">people</span>
+      </div>
+    </section>
+
+    <section class="section">
+      <p class="label">🌍 Cuisine Style <span class="optional">(optional)</span></p>
+      <div class="chips">
+        <label class="chip cuisine-chip"><input type="checkbox" name="cuisine" value="Italian"><span class="dot"></span>🇮🇹 Italian</label>
+        <label class="chip cuisine-chip"><input type="checkbox" name="cuisine" value="Indian"><span class="dot"></span>🇮🇳 Indian</label>
+        <label class="chip cuisine-chip"><input type="checkbox" name="cuisine" value="Japanese"><span class="dot"></span>🇯🇵 Japanese</label>
+        <label class="chip cuisine-chip"><input type="checkbox" name="cuisine" value="Mexican"><span class="dot"></span>🇲🇽 Mexican</label>
+        <label class="chip cuisine-chip"><input type="checkbox" name="cuisine" value="Mediterranean"><span class="dot"></span>🫒 Mediterranean</label>
+        <label class="chip cuisine-chip"><input type="checkbox" name="cuisine" value="Chinese"><span class="dot"></span>🇨🇳 Chinese</label>
+        <label class="chip cuisine-chip"><input type="checkbox" name="cuisine" value="Thai"><span class="dot"></span>🇹🇭 Thai</label>
+      </div>
+    </section>
+
+    <section class="section">
+      <p class="label">🍽️ Meal Type <span class="optional">(optional)</span></p>
+      <div class="chips">
+        <label class="chip meal-chip"><input type="checkbox" name="meal" value="Breakfast"><span class="dot"></span>☀️ Breakfast</label>
+        <label class="chip meal-chip"><input type="checkbox" name="meal" value="Lunch"><span class="dot"></span>🌤️ Lunch</label>
+        <label class="chip meal-chip"><input type="checkbox" name="meal" value="Dinner"><span class="dot"></span>🌙 Dinner</label>
+        <label class="chip meal-chip"><input type="checkbox" name="meal" value="Snack"><span class="dot"></span>🍿 Snack</label>
+        <label class="chip meal-chip"><input type="checkbox" name="meal" value="Dessert"><span class="dot"></span>🍰 Dessert</label>
+      </div>
+    </section>
+
+    <section class="section">
+      <p class="label">⏱️ Max Cook Time <span class="optional">(optional)</span></p>
+      <div class="chips">
+        <label class="chip time-chip"><input type="checkbox" name="time" value="15 minutes"><span class="dot"></span>⚡ 15 min</label>
+        <label class="chip time-chip"><input type="checkbox" name="time" value="30 minutes"><span class="dot"></span>🕐 30 min</label>
+        <label class="chip time-chip"><input type="checkbox" name="time" value="1 hour"><span class="dot"></span>🕑 1 hour</label>
+        <label class="chip time-chip"><input type="checkbox" name="time" value="any amount of time"><span class="dot"></span>♾️ Any</label>
+      </div>
+    </section>
+
+    <button class="cook-btn" id="cookBtn">✨ Cook Magic</button>
+
+    <div class="loading" id="loading">
+      <div class="spinner"></div>
+      <p>Crafting your masterpiece…</p>
+    </div>
+    <div class="error-msg" id="errorMsg"></div>
+  </main>
+
+  <div class="result" id="result">
+    <div class="result-header">
+      <div class="result-top-row">
+        <div class="result-tag">✦ Your Recipe</div>
+        <div class="result-actions">
+          <button class="action-btn" id="saveBtn">🔖 Save</button>
+          <button class="action-btn" id="copyBtn">📋 Copy</button>
+          <button class="action-btn" id="printBtn">🖨️ Print</button>
+        </div>
+      </div>
+      <div class="dish-name" id="dishName"></div>
+      <div class="recipe-meta" id="recipeMeta"></div>
+      <div class="applied-tags" id="appliedTags"></div>
+    </div>
+    <div class="nutrition-bar" id="nutritionBar"></div>
+    <div class="steps-container" id="stepsContainer"></div>
+    <button class="new-recipe-btn" id="newRecipeBtn">🔄 Try Another Recipe</button>
+  </div>
+
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+  <div class="saved-drawer" id="savedDrawer">
+    <div class="drawer-header">
+      <span>🔖 Saved Recipes</span>
+      <button class="drawer-close" id="drawerClose">✕</button>
+    </div>
+    <div class="saved-list" id="savedList">
+      <p class="empty-saved">No saved recipes yet.<br>Click 🔖 Save after generating one!</p>
+    </div>
+    <button class="clear-saved-btn" id="clearSavedBtn">🗑️ Clear All</button>
+  </div>
+
+  <button class="float-btn" id="openDrawerBtn">🔖 <span id="savedCount">0</span></button>
+
+  <!-- Register Service Worker -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js')
+        .then(() => console.log('✅ Service Worker registered'))
+        .catch(err => console.log('SW error:', err));
+    }
+  </script>
+
+  <script src="script.js"></script>
+</body>
+</html>
