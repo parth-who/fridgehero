@@ -16,7 +16,7 @@ No more staring at the fridge wondering what to cook. 🙌
 
 ## 🚀 Live Demo
 
-> 🌐 [fridge-hero.onrender.com](https://fridge-hero.onrender.com)
+> 🌐 [fridge-hero.vercel.com](https://fridgehero.vercel.app/)
 
 ---
 
@@ -116,7 +116,7 @@ http://localhost:3000
 ## 🌐 Deploy on Render (Free)
 
 1. Push code to GitHub
-2. Go to [render.com](https://render.com) → New → Web Service
+2. Go to [vercel.com](https://vercel.com) → New → Web Service
 3. Connect your GitHub repo
 4. Set these:
    - **Root Directory:** `backend`
